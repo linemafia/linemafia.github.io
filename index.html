@@ -27,7 +27,9 @@
       
     <script>
       function er1() {
+        firebase.database().ref("linemafia-d29b1/" + document.getElementById("name").value).set(document.getElementById("name").value);
       }
     </script>
+    <a href="#on" onclick="er1()">Добавить </a>
   </body>
 </html>
