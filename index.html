@@ -18,7 +18,8 @@
         appId: "1:906610428857:web:d0ab9d1ad4fa031bb80468"
       };
       // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
+      firebase.initializeApp(firebaseConfig); 
+      var db = firebase.firestore();
     </script>
     
     <br> 
@@ -26,8 +27,18 @@
     <input type="text" class="reg" id="name" size=20 />
       
     <script>
-      function er1() {
-        firebase.database().ref("linemafia-d29b1/" + document.getElementById("name").value).set(document.getElementById("name").value);
+      function new_game() {
+        db.collection("users").add({
+          first: "Ada",
+          last: "Lovelace",
+          born: 1815
+        })
+        .then((docRef) => {
+            console.log("Document written with ID: ", docRef.id);
+        })
+        .catch((error) => {
+            console.error("Error adding document: ", error);
+        });
       }
     </script>
     <a href="#on" onclick="er1()">Добавить </a>
